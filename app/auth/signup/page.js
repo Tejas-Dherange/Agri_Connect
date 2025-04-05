@@ -161,6 +161,17 @@ export default function Signup() {
                 />
                 Agricultural Expert
               </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="role"
+                  value="admin"
+                  checked={formData.role === "admin"}
+                  onChange={handleChange}
+                  className="mr-2"
+                />
+                Admin
+              </label>
             </div>
           </div>
 
