@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import connectDB from '@/lib/mongodb';
+import connectDB from '@/lib/dbConnect.js';
 import { PestReport } from '@/models/schemas';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
@@ -50,17 +50,26 @@ export async function GET(req) {
     const lng = parseFloat(searchParams.get('lng'));
     const radius = parseFloat(searchParams.get('radius')) || 10; // Default 10km radius
 
-    const reports = await PestReport.find({
-      location: {
-        $near: {
-          $geometry: {
-            type: 'Point',
-            coordinates: [lng, lat]
-          },
-          $maxDistance: radius * 1000 // Convert km to meters
+    let query = {};
+    
+    // Only apply location filter if valid coordinates are provided
+    if (!isNaN(lat) && !isNaN(lng)) {
+      query = {
+        location: {
+          $near: {
+            $geometry: {
+              type: 'Point',
+              coordinates: [lng, lat]
+            },
+            $maxDistance: radius * 1000 // Convert km to meters
+          }
         }
-      }
-    }).populate('farmerId', 'name email');
+      };
+    }
+
+    const reports = await PestReport.find(query)
+      .populate('farmerId', 'name email')
+      .sort({ createdAt: -1 });
 
     return NextResponse.json({ success: true, data: reports });
   } catch (error) {

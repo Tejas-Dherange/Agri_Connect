@@ -58,6 +58,14 @@ export default function FarmerDashboard() {
             View Crops
           </Link>
         </div>
+
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Expenses</h2>
+          <p className="mb-4">Track your income and expenses.</p>
+          <Link href="/dashboard/farmer/expenses" className="btn btn-primary">
+            Manage Expenses
+          </Link>
+        </div>
       </div>
     </div>
   )

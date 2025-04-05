@@ -61,6 +61,9 @@ export default function Navbar() {
                 <Link href="/pest-alerts" className="hover:text-green-200">
                   Pest Alerts
                 </Link>
+                <Link href="/expert-sessions" className="hover:text-green-200">
+                  Expert Sessions
+                </Link>
                 <Link href="/weather" className="hover:text-green-200">
                   Weather & Prices
                 </Link>
@@ -98,6 +101,9 @@ export default function Navbar() {
                 </Link>
                 <Link href="/pest-alerts" className="block hover:text-green-200 py-2">
                   Pest Alerts
+                </Link>
+                <Link href="/expert-sessions" className="block hover:text-green-200 py-2">
+                  Expert Sessions
                 </Link>
                 <Link href="/weather" className="block hover:text-green-200 py-2">
                   Weather & Prices

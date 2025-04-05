@@ -1,19 +1,5 @@
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  role: { type: String, enum: ['farmer', 'expert', 'admin'], default: 'farmer' },
-  location: {
-    type: { type: String, enum: ['Point'], default: 'Point' },
-    coordinates: { type: [Number], default: [0, 0] }
-  },
-  farmSize: { type: Number },
-  crops: [{ type: String }],
-  createdAt: { type: Date, default: Date.now }
-});
-
 const pestReportSchema = new mongoose.Schema({
   farmerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   pestType: { type: String, required: true },
@@ -58,12 +44,10 @@ const weatherAlertSchema = new mongoose.Schema({
 });
 
 // Create indexes for geospatial queries
-userSchema.index({ location: '2dsphere' });
 pestReportSchema.index({ location: '2dsphere' });
 marketplaceItemSchema.index({ location: '2dsphere' });
 weatherAlertSchema.index({ location: '2dsphere' });
 
-export const User = mongoose.models.User || mongoose.model('User', userSchema);
 export const PestReport = mongoose.models.PestReport || mongoose.model('PestReport', pestReportSchema);
 export const MarketplaceItem = mongoose.models.MarketplaceItem || mongoose.model('MarketplaceItem', marketplaceItemSchema);
 export const WeatherAlert = mongoose.models.WeatherAlert || mongoose.model('WeatherAlert', weatherAlertSchema); 
