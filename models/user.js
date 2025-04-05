@@ -12,26 +12,24 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Please provide a password"],
+    required: true,
   },
   role: {
     type: String,
-    enum: ['farmer', 'expert', 'admin'],
-    default: 'farmer',
+    enum: ["farmer", "advisor", "admin","laborHead"],
+    default: "farmer",
   },
-  location: {
-    type: { type: String, enum: ['Point'], default: 'Point' },
-    coordinates: { type: [Number], default: [0, 0] }
-  },
-  farmSize: { type: Number },
-  crops: [{ type: String }],
-  profileImage: {
+  phone: {
     type: String,
-    default: "",
+    required: true,
   },
   specialization: {
     type: String,
     default: "",
+  },
+  farmSize: {
+    type: Number,
+    default: 0,
   },
   createdAt: {
     type: Date,
