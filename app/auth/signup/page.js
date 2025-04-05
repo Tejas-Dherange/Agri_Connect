@@ -12,6 +12,7 @@ export default function Signup() {
     password: "",
     confirmPassword: "",
     role: "farmer",
+    phone:""
   })
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -47,6 +48,7 @@ export default function Signup() {
           email: formData.email,
           password: formData.password,
           role: formData.role,
+          phone: formData.phone,
         }),
       })
 
@@ -129,6 +131,21 @@ export default function Signup() {
               id="confirmPassword"
               name="confirmPassword"
               value={formData.confirmPassword}
+              onChange={handleChange}
+              className="input"
+              required
+              minLength={6}
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="phone" className="block text-gray-700 mb-2">
+              Phone
+            </label>
+            <input
+              type=""
+              id="phone"
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
               className="input"
               required

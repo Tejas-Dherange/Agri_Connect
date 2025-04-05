@@ -5,10 +5,11 @@ import User from "@/models/user"
 
 export async function POST(request) {
   try {
-    const { name, email, password, role } = await request.json()
+    const { name, email, password, role, phone } = await request.json()
+    console.log(name,email,password,role,phone)
 
     // Validate input
-    if (!name || !email || !password || !role) {
+    if (!name || !email || !password || !role || !phone) {
       return NextResponse.json({ message: "Missing required fields" }, { status: 400 })
     }
 
@@ -29,6 +30,7 @@ export async function POST(request) {
       email,
       password: hashedPassword,
       role,
+      phone
     })
 
     // Remove password from response
@@ -37,6 +39,7 @@ export async function POST(request) {
       name: user.name,
       email: user.email,
       role: user.role,
+      phone: user.phone,
     }
 
     return NextResponse.json({ message: "User created successfully", user: newUser }, { status: 201 })
