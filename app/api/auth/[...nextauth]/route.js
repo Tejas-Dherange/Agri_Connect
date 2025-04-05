@@ -13,24 +13,29 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        await dbConnect()
+        try {
+          await dbConnect()
 
-        // Find user by email
-        const user = await User.findOne({ email: credentials.email })
+          // Find user by email
+          const user = await User.findOne({ email: credentials.email })
 
-        // Check if user exists and password is correct
-        if (user && bcrypt.compareSync(credentials.password, user.password)) {
-          return {
-            id: user._id.toString(),
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            image: user.profileImage || null,
+          // Check if user exists and password is correct
+          if (user && bcrypt.compareSync(credentials.password, user.password)) {
+            return {
+              id: user._id.toString(),
+              name: user.name,
+              email: user.email,
+              role: user.role,
+              image: user.profileImage || null,
+            }
           }
-        }
 
-        // Authentication failed
-        return null
+          // Authentication failed
+          return null
+        } catch (error) {
+          console.error("Auth error:", error)
+          return null
+        }
       },
     }),
   ],
@@ -60,6 +65,7 @@ export const authOptions = {
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === "development",
 }
 
 const handler = NextAuth(authOptions)

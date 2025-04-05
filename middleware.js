@@ -12,8 +12,6 @@ export async function middleware(request) {
   const isProtectedRoute = pathname.startsWith('/dashboard') || 
     pathname.startsWith('/marketplace') || 
     pathname.startsWith('/pest-alerts') ||
-  pathname.startsWith('/weather')  || 
-    pathname.startsWith('/pest-alerts') ||
     pathname.startsWith('/weather')
 
   // Redirect unauthenticated users to login
