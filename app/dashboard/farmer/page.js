@@ -74,6 +74,13 @@ export default function FarmerDashboard() {
             Manage Expenses
           </Link>
         </div>
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Crop Recomendation</h2>
+          <p className="mb-4">Get crop recomendation</p>
+          <Link href="/dashboard/farmer/crop-recommendation" className="btn btn-primary">
+             Recomendation
+          </Link>
+        </div>
       </div>
     </div>
   )
