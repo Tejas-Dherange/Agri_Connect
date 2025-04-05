@@ -16,13 +16,15 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ["farmer", "expert"],
-    default: "farmer",
+    enum: ['farmer', 'expert', 'admin'],
+    default: 'farmer',
   },
   location: {
-    type: String,
-    default: "",
+    type: { type: String, enum: ['Point'], default: 'Point' },
+    coordinates: { type: [Number], default: [0, 0] }
   },
+  farmSize: { type: Number },
+  crops: [{ type: String }],
   profileImage: {
     type: String,
     default: "",
