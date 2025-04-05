@@ -15,8 +15,8 @@ export default function Sidebar() {
     { name: "My Crops", href: "/dashboard/farmer/crops" },
     { name: "Report Pest", href: "/pest-alerts/report" },
     { name: "My Products", href: "/dashboard/farmer/products" },
+    { name: "Expert Sessions", href: "/expert-sessions" },
     { name: "Weather & Prices", href: "/weather" },
-    { name: "Crop Recommendation", href: "/crop-recommendation" },
   ]
 
   const expertLinks = [
@@ -24,10 +24,21 @@ export default function Sidebar() {
     { name: "Pest Reports", href: "/dashboard/expert/pest-reports" },
     { name: "Farmer Queries", href: "/dashboard/expert/queries" },
     { name: "Knowledge Base", href: "/dashboard/expert/knowledge" },
-    { name: "Crop Recommendation", href: "/crop-recommendation" },
+    { name: "Expert Sessions", href: "/expert-sessions" },
   ]
 
-  const links = userRole === "farmer" ? farmerLinks : expertLinks
+  const adminLinks = [
+    { name: "Overview", href: "/dashboard/admin" },
+    { name: "Users", href: "/dashboard/admin/users" },
+    { name: "Expert Sessions", href: "/admin/expert-sessions" },
+    { name: "Reports", href: "/dashboard/admin/reports" },
+  ]
+
+  const links = userRole === "farmer" 
+    ? farmerLinks 
+    : userRole === "expert" 
+      ? expertLinks 
+      : adminLinks
 
   return (
     <div className="bg-gray-100 w-64 min-h-screen p-4">

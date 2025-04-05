@@ -34,14 +34,6 @@ export default function ExpertDashboard() {
             View Knowledge Base
           </Link>
         </div>
-
-        <div className="card bg-teal-50">
-          <h2 className="text-xl font-semibold mb-3">Crop Recommendation</h2>
-          <p className="mb-4">Help farmers with AI-powered crop recommendations.</p>
-          <Link href="/crop-recommendation" className="btn btn-primary">
-            View Recommendations
-          </Link>
-        </div>
       </div>
     </div>
   )
