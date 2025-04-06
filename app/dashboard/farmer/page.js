@@ -81,6 +81,14 @@ export default function FarmerDashboard() {
              Recomendation
           </Link>
         </div>
+        
+        <div className="card bg-pink-50">
+          <h2 className="text-xl font-semibold mb-3">Fertilizer Recommendation</h2>
+          <p className="mb-4">Get fertilizer recommendations based on soil nutrients.</p>
+          <Link href="/dashboard/farmer/fertilizer-recommendation" className="btn btn-primary">
+            Get Recommendation
+          </Link>
+        </div>
       </div>
     </div>
   )
