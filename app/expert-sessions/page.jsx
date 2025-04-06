@@ -1,16 +1,22 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react'; // ✅ import from NextAuth
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import SessionCard from '@/components/expert-sessions/SessionCard';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function ExpertSessionsPage() {
+  const { data: session, status } = useSession(); // ✅ get session
   const [sessions, setSessions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+
+  const userRole = session?.user?.role; // ✅ get role from session.user.role
 
   useEffect(() => {
     fetchSessions();
@@ -33,9 +39,7 @@ export default function ExpertSessionsPage() {
   const handleRegister = async (sessionId) => {
     const response = await fetch('/api/expert-sessions/register', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ sessionId }),
     });
 
@@ -44,7 +48,6 @@ export default function ExpertSessionsPage() {
       throw new Error(error.error || 'Failed to register');
     }
 
-    // Refresh sessions after registration
     fetchSessions();
   };
 
@@ -58,36 +61,43 @@ export default function ExpertSessionsPage() {
       throw new Error(error.error || 'Failed to cancel registration');
     }
 
-    // Refresh sessions after cancellation
     fetchSessions();
   };
 
   const filteredSessions = sessions.filter(session => {
-    const matchesSearch = session.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         session.village.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         session.expertId?.name.toLowerCase().includes(searchTerm.toLowerCase());
-    
+    const matchesSearch =
+      session.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      session.village.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      session.expertId?.name.toLowerCase().includes(searchTerm.toLowerCase());
+
     const matchesStatus = statusFilter === 'all' || session.status === statusFilter;
-    
+
     return matchesSearch && matchesStatus;
   });
 
-  const upcomingSessions = filteredSessions.filter(session => 
+  const upcomingSessions = filteredSessions.filter(session =>
     new Date(session.date) > new Date() && session.status === 'scheduled'
   );
 
-  const pastSessions = filteredSessions.filter(session => 
+  const pastSessions = filteredSessions.filter(session =>
     new Date(session.date) <= new Date() || session.status === 'completed'
   );
 
-  if (loading) {
+  if (loading || status === 'loading') {
     return <div className="container mx-auto px-4 py-8">Loading...</div>;
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Expert Village Sessions</h1>
-      
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-3xl font-bold">Expert Village Sessions</h1>
+        {userRole === 'admin' && (
+          <Link href="/expert-sessions/create">
+            <Button>Create Session Request</Button>
+          </Link>
+        )}
+      </div>
+
       <div className="flex flex-col md:flex-row gap-4 mb-6">
         <Input
           placeholder="Search sessions..."
@@ -150,4 +160,4 @@ export default function ExpertSessionsPage() {
       </Tabs>
     </div>
   );
-} 
+}
