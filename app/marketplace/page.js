@@ -13,7 +13,7 @@ const dummyProducts = [
     price: 45,
     unit: "kg",
     quantity: 500,
-    images: ["/placeholder.svg?height=300&width=300"],
+    images: ["https://images.pexels.com/photos/8108115/pexels-photo-8108115.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
     location: "Punjab",
     seller: {
       id: "101",
@@ -28,7 +28,7 @@ const dummyProducts = [
     price: 30,
     unit: "kg",
     quantity: 100,
-    images: ["/placeholder.svg?height=300&width=300"],
+    images: ["https://images.pexels.com/photos/209401/pexels-photo-209401.jpeg?auto=compress&cs=tinysrgb&w=600"],
     location: "Maharashtra",
     seller: {
       id: "102",
@@ -43,7 +43,7 @@ const dummyProducts = [
     price: 120,
     unit: "kg",
     quantity: 200,
-    images: ["/placeholder.svg?height=300&width=300"],
+    images: ["https://images.pexels.com/photos/162870/rye-cereals-wheat-nature-162870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
     location: "Haryana",
     seller: {
       id: "103",
@@ -58,7 +58,7 @@ const dummyProducts = [
     price: 500,
     unit: "bag",
     quantity: 50,
-    images: ["/placeholder.svg?height=300&width=300"],
+    images: ["https://images.pexels.com/photos/3696170/pexels-photo-3696170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
     location: "Gujarat",
     seller: {
       id: "104",
@@ -73,7 +73,7 @@ const dummyProducts = [
     price: 400,
     unit: "dozen",
     quantity: 30,
-    images: ["/placeholder.svg?height=300&width=300"],
+    images: ["https://images.pexels.com/photos/7303400/pexels-photo-7303400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
     location: "Karnataka",
     seller: {
       id: "105",
@@ -88,11 +88,41 @@ const dummyProducts = [
     price: 1500,
     unit: "day",
     quantity: 1,
-    images: ["/placeholder.svg?height=300&width=300"],
+    images: ["https://images.pexels.com/photos/8064065/pexels-photo-8064065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
     location: "Uttar Pradesh",
     seller: {
       id: "106",
       name: "Vikram Singh",
+    },
+  },
+  {
+    id: "7",
+    name: "Pesticide (Organic)",
+    description: "Organic pesticide for pest control",
+    category: "Pesticides",
+    price: 10,
+    unit: "ml",
+    quantity: 100,
+    images: ["https://krushidukan.bharatagri.com/cdn/shop/files/FMC_Coragen_insecticide_1_bd3a5d6e-10d3-4a1d-98c2-056b63d9fb5e.webp?v=1735650323&width=1445"],
+    location: "Maharashtra",
+    seller: {
+      id: "107",  
+      name: "Rajesh Shetty",
+    },
+  },
+  {
+    id: "8",
+    name: "Land EarthMovers",
+    description: "Make your land ready for cultivation with our earthmover services",
+    category: "Suppies", 
+    price: 1500,
+    unit: "hr",
+    quantity: 5,
+    images: ["https://images.pexels.com/photos/4856725/pexels-photo-4856725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"],
+    location: "MAharashtra",
+    seller: {
+      id: "108",
+      name: "Rajesh Kumar",
     },
   },
 ]
