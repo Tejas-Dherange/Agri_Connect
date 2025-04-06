@@ -6,8 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
+import { useSession } from 'next-auth/react';
 
 export default function SessionCard({ session, onRegister, onCancel }) {
+
   const [isLoading, setIsLoading] = useState(false);
 
   const handleRegister = async () => {
@@ -65,7 +67,7 @@ export default function SessionCard({ session, onRegister, onCancel }) {
           </div>
           <div>
             <p className="text-sm text-gray-500">Location</p>
-            <p className="font-medium">{session.village.name}</p>
+            <p className="font-medium">{session.village}</p>
           </div>
           <div>
             <p className="text-sm text-gray-500">Date & Time</p>

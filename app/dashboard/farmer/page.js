@@ -43,13 +43,13 @@ export default function FarmerDashboard() {
           </Link>
         </div>
 
-        <div className="card bg-red-50">
+        {/* <div className="card bg-red-50">
           <h2 className="text-xl font-semibold mb-3">My Products</h2>
           <p className="mb-4">Manage your products in the marketplace.</p>
           <Link href="/dashboard/farmer/products" className="btn btn-primary">
             Manage Products
           </Link>
-        </div>
+        </div> */}
 
         <div className="card bg-teal-50">
           <h2 className="text-xl font-semibold mb-3">Community Forum</h2>
@@ -81,12 +81,11 @@ export default function FarmerDashboard() {
              Recomendation
           </Link>
         </div>
-        
-        <div className="card bg-pink-50">
-          <h2 className="text-xl font-semibold mb-3">Fertilizer Recommendation</h2>
-          <p className="mb-4">Get fertilizer recommendations based on soil nutrients.</p>
-          <Link href="/dashboard/farmer/fertilizer-recommendation" className="btn btn-primary">
-            Get Recommendation
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Labor Management</h2>
+          <p className="mb-4">Get hired labor </p>
+          <Link href="/dashboard/farmer/labor-requests" className="btn btn-primary">
+             Labor
           </Link>
         </div>
       </div>

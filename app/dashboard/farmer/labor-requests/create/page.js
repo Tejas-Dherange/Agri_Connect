@@ -23,7 +23,7 @@ export default function CreateLaborRequest() {
         throw new Error(data.error || 'Failed to create labor request');
       }
 
-      router.push('/labor-requests');
+      router.push('/dashboard/farmer/labor-requests');
     } catch (err) {
       setError(err.message);
     }

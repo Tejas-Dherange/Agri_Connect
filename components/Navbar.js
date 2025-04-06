@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="text-2xl font-bold">
-            AgriConnect
+            SmartShetKari
           </Link>
 
           {/* Mobile menu button */}
@@ -55,8 +55,8 @@ export default function Navbar() {
                 <Link href={`/dashboard/${userRole}`} className="hover:text-green-200">
                   Dashboard
                 </Link>
-                <Link href="/marketplace" className="hover:text-green-200">
-                  Marketplace
+                <Link href="/product-identifier" className="hover:text-green-200">
+                  Search Pesticide
                 </Link>
                 <Link href="/pest-alerts" className="hover:text-green-200">
                   Pest Alerts

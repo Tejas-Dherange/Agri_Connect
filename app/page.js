@@ -1,4 +1,8 @@
+'use client';
+
 import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -32,6 +36,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
