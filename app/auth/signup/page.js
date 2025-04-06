@@ -171,12 +171,23 @@ export default function Signup() {
                 <input
                   type="radio"
                   name="role"
-                  value="expert"
-                  checked={formData.role === "expert"}
+                  value="admin"
+                  checked={formData.role === "admin"}
                   onChange={handleChange}
                   className="mr-2"
                 />
-                Agricultural Expert
+                Admin
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="role"
+                  value="laborHead"
+                  checked={formData.role === "laborHead"}
+                  onChange={handleChange}
+                  className="mr-2"
+                />
+                LaborHead
               </label>
             </div>
           </div>

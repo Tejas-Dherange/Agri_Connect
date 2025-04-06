@@ -28,29 +28,41 @@ export default function Login() {
     setIsLoading(true)
 
     try {
+      // Use a more direct approach to authentication
       const result = await signIn("credentials", {
         redirect: false,
         email: formData.email,
         password: formData.password,
+        callbackUrl: "/dashboard/farmer" // Default redirect for farmers
       })
-      console.log(result);
       
-      if (result.error) {
+      if (result?.error) {
         setError("Invalid email or password")
         setIsLoading(false)
         return
       }
 
-      // Fetch user data to determine role for redirection
-      const response = await fetch("/api/user/me")
-      const userData = await response.json()
-
-      if (userData.role === "farmer") {
-        router.push("/dashboard/farmer")
-      } else if (userData.role === "expert") {
-        router.push("/dashboard/expert")
+      // Successful login - redirect based on result
+      if (result?.url) {
+        router.push(result.url)
       } else {
-        router.push("/")
+        // Fallback to fetching user data
+        try {
+          const response = await fetch("/api/user/me")
+          const userData = await response.json()
+
+          if (userData.role === "farmer") {
+            router.push("/dashboard/farmer")
+          } else if (userData.role === "expert") {
+            router.push("/dashboard/expert")
+          } else {
+            router.push("/")
+          }
+        } catch (fetchError) {
+          console.error("Error fetching user data:", fetchError)
+          // Default to farmer dashboard if we can't determine the role
+          router.push("/dashboard/farmer")
+        }
       }
     } catch (err) {
       console.error("Login error:", err)

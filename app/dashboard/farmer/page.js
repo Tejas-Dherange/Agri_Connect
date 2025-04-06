@@ -51,6 +51,14 @@ export default function FarmerDashboard() {
           </Link>
         </div> */}
 
+        <div className="card bg-teal-50">
+          <h2 className="text-xl font-semibold mb-3">Community Forum</h2>
+          <p className="mb-4">Connect with other farmers and share experiences.</p>
+          <Link href="/dashboard/farmer/community" className="btn btn-primary">
+            Join Community
+          </Link>
+        </div>
+
         <div className="card bg-indigo-50">
           <h2 className="text-xl font-semibold mb-3">My Crops</h2>
           <p className="mb-4">Track and manage your crops.</p>

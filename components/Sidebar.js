@@ -15,6 +15,7 @@ export default function Sidebar() {
     { name: "My Crops", href: "/dashboard/farmer/crops" },
     { name: "Report Pest", href: "/pest-alerts/report" },
     { name: "My Products", href: "/dashboard/farmer/products" },
+    { name: "Community", href: "/dashboard/farmer/community" },
     { name: "Expert Sessions", href: "/expert-sessions" },
     { name: "Weather & Prices", href: "/weather" },
   ]

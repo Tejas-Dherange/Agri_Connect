@@ -2,14 +2,10 @@ import mongoose from 'mongoose';
 
 const expertSessionSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  description: { type: String, required: true },
-  expertId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  description: { type: String },
+  expertId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   village: {
-    name: { type: String, required: true },
-    location: {
-      type: { type: String, enum: ['Point'], default: 'Point' },
-      coordinates: { type: [Number], required: true }
-    }
+    name: { type: String},
   },
   date: { type: Date, required: true },
   duration: { type: Number, required: true }, // in minutes
