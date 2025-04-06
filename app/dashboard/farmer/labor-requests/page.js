@@ -77,7 +77,7 @@ export default function LaborRequests() {
         <div className="flex items-center gap-4">
           {session?.user?.role === 'farmer' && (
             <Link
-              href="/labor-requests/create"
+              href="/dashboard/farmer/labor-requests/create"
               className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
             >
               Create New Request
@@ -141,7 +141,7 @@ export default function LaborRequests() {
               </div>
               <div className="flex gap-2">
                 <Link
-                  href={`/labor-requests/${request._id}`}
+                  href={`/dashboard/farmer/labor-requests/${request._id}`}
                   className="text-green-600 hover:text-green-700 font-medium"
                 >
                   View Details

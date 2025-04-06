@@ -43,13 +43,13 @@ export default function FarmerDashboard() {
           </Link>
         </div>
 
-        <div className="card bg-red-50">
+        {/* <div className="card bg-red-50">
           <h2 className="text-xl font-semibold mb-3">My Products</h2>
           <p className="mb-4">Manage your products in the marketplace.</p>
           <Link href="/dashboard/farmer/products" className="btn btn-primary">
             Manage Products
           </Link>
-        </div>
+        </div> */}
 
         <div className="card bg-indigo-50">
           <h2 className="text-xl font-semibold mb-3">My Crops</h2>
@@ -71,6 +71,13 @@ export default function FarmerDashboard() {
           <p className="mb-4">Get crop recomendation</p>
           <Link href="/dashboard/farmer/crop-recommendation" className="btn btn-primary">
              Recomendation
+          </Link>
+        </div>
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Labor Management</h2>
+          <p className="mb-4">Get hired labor </p>
+          <Link href="/dashboard/farmer/labor-requests" className="btn btn-primary">
+             Labor
           </Link>
         </div>
       </div>
