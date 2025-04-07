@@ -11,6 +11,41 @@ export default function FarmerDashboard() {
       <h1 className="text-3xl font-bold mb-6">Welcome, {session?.user?.name}</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Expenses Management</h2>
+          <p className="mb-4">Track your income and expenses.</p>
+          <Link href="/dashboard/farmer/expenses" className="btn btn-primary">
+            Manage Expenses
+          </Link>
+        </div>
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Crop Recomendation</h2>
+          <p className="mb-4">Get crop recomendation</p>
+          <Link href="/dashboard/farmer/crop-recommendation" className="btn btn-primary">
+             Recomendation
+          </Link>
+        </div>
+        <div className="card bg-red-50">
+          <h2 className="text-xl font-semibold mb-3">Smart Irrigation</h2>
+          <p className="mb-4">Get plan for smart irrigation</p>
+          <Link href="/dashboard/farmer/smart-irrigation" className="btn btn-primary">
+            Irrigation Schedule
+          </Link>
+        </div>
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Fetilizer Finder</h2>
+          <p className="mb-4">Get perfect fertilizer on your soil </p>
+          <Link href="/dashboard/farmer/fertilizer-recommendation" className="btn btn-primary">
+             Get Recommendation
+          </Link>
+        </div>
+        <div className="card bg-orange-50">
+          <h2 className="text-xl font-semibold mb-3">Labor Management</h2>
+          <p className="mb-4">Get hired labor </p>
+          <Link href="/dashboard/farmer/labor-requests" className="btn btn-primary">
+             Labor
+          </Link>
+        </div>
         <div className="card bg-green-50">
           <h2 className="text-xl font-semibold mb-3">Pest Alerts</h2>
           <p className="mb-4">Report pest issues and get expert advice.</p>
@@ -43,13 +78,6 @@ export default function FarmerDashboard() {
           </Link>
         </div>
 
-        <div className="card bg-red-50">
-          <h2 className="text-xl font-semibold mb-3">Smart Irrigation</h2>
-          <p className="mb-4">Get plan for smart irrigation</p>
-          <Link href="/dashboard/farmer/smart-irrigation" className="btn btn-primary">
-            Irrigation Schedule
-          </Link>
-        </div>
 
         <div className="card bg-teal-50">
           <h2 className="text-xl font-semibold mb-3">Community Forum</h2>
@@ -60,34 +88,14 @@ export default function FarmerDashboard() {
         </div>
 
         <div className="card bg-indigo-50">
-          <h2 className="text-xl font-semibold mb-3">My Crops</h2>
-          <p className="mb-4">Track and manage your crops.</p>
-          <Link href="/dashboard/farmer/crops" className="btn btn-primary">
+          <h2 className="text-xl font-semibold mb-3">Goverment Schemes</h2>
+          <p className="mb-4">Check goverment schemes Here  </p>
+          <Link href="/dashboard/farmer/schemes" className="btn btn-primary">
             View Crops
           </Link>
         </div>
 
-        <div className="card bg-orange-50">
-          <h2 className="text-xl font-semibold mb-3">Expenses</h2>
-          <p className="mb-4">Track your income and expenses.</p>
-          <Link href="/dashboard/farmer/expenses" className="btn btn-primary">
-            Manage Expenses
-          </Link>
-        </div>
-        <div className="card bg-orange-50">
-          <h2 className="text-xl font-semibold mb-3">Crop Recomendation</h2>
-          <p className="mb-4">Get crop recomendation</p>
-          <Link href="/dashboard/farmer/crop-recommendation" className="btn btn-primary">
-             Recomendation
-          </Link>
-        </div>
-        <div className="card bg-orange-50">
-          <h2 className="text-xl font-semibold mb-3">Labor Management</h2>
-          <p className="mb-4">Get hired labor </p>
-          <Link href="/dashboard/farmer/labor-requests" className="btn btn-primary">
-             Labor
-          </Link>
-        </div>
+
       </div>
     </div>
   )
